@@ -1,0 +1,17 @@
+{%extends "master.html"%}
+{% block title %} Modificar {% endblock %}
+{%block contenido %}
+	<div class="well">
+	<h1>modificar</h1>
+		<form method="POST" class="form-horizontal">{% csrf_token %}
+			{{f.as_p}}
+			<input type="submit" value="Modificar" class="btn btn-success"/>
+		</form>
+	</div>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#id_Cod').disabled = true;
+		});
+</script>
+{%endblock%}
+	

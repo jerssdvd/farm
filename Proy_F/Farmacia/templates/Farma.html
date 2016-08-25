@@ -1,0 +1,26 @@
+{% extends "master.html" %}
+{% block title %}
+Compra-Venta
+{% endblock %}
+{% block contenido %}
+<div class="container">
+	<h2> {{user.username}}</h2>
+	{% for m in usuarios %}
+	{% if m.user.username == user.username %}
+		{% if m.Tipo == "A" %}
+			<a href=".."> lista</a>
+			<script type="text/javascript">
+				location.href = "http://localhost:8000/Farmacia/listaradmin/";
+				</script>
+		{% else %}
+			<script type="text/javascript">
+				location.href = "http://localhost:8000/Farmacia/listar/";
+				</script>
+		{% endif %}
+	{% endif %}
+	{%endfor%}
+</div>
+	
+{% endblock %}
+
+

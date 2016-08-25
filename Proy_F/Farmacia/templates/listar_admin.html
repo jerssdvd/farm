@@ -1,0 +1,89 @@
+{% extends "master.html"%}
+{% load static%}
+{% block title %} Administracion {% endblock %}
+{%block contenido%}
+<div class="container" style="background-image:url('{% static "img/admin.jpg" %}') ;width:1000">
+	<nav class="navbar navbar-inverse">
+	<div class="navbar-header">
+    <a class="navbar-brand" href=""><img src="{% static 'img/logo.jpg' %}" width="45px" height="35px"/></a>
+	</div>
+	<div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+<ul class="nav navbar-nav">
+			<li><a href="..">Home</a></li>
+			<li><a href="../Acerca">Informacion del Sitio</a></li>
+			<li><a href="Compras">Compra</a></li>
+			<li><a href="Ventas">Venta</a></li>
+			<li><a href="../cerrar" > Cerrar Session </a></li>
+		</ul>
+	</div>
+	</nav>
+	<div class="container table-responsive">
+<a href="crear" class="btn btn-info">Ingresar Medicamentos</a>
+<table class ="table table-striped">
+		<th>Nombre</th>
+		<th>Cantidad</th>
+		<th>Descripcion</th>
+		<th>Precio</th>
+		<th>Opciones</th>
+	{%for m in Medicamentos%}
+	<tr>
+		<td>{{m.Nombre}}</td>
+		<td>{{m.Cantidad}}</td>
+		<td>{{m.Descripcion}}</td>
+		<td>{{m.PrecioU}}</td>
+		<td><a href="eliminar?Cod={{m.Cod}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+		|<a href="modificar?Cod={{m.Cod}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>|
+		<a href="certificado?Cod={{m.Cod}}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a></td>
+	</tr>
+	{%endfor%}
+</table>
+</div>
+<div class="container">
+<a href="Ingresar" class="btn btn-info">Ingresar Empleados</a>
+<table class ="table table-striped">
+	
+		<th>Nombre</th>
+		<th>Apellido</th>
+		<th>Direccion</th>
+		<th>Telefono</th>
+		<th>Fecha</th>
+		<th>Opciones</th>
+	{%for e in empleados%}
+	<tr>
+		<td>{{e.Nombre}}</td>
+		<td>{{e.Apellido}}</td>
+		<td>{{e.Direccion}}</td>
+		<td>{{e.Telefono}}</td>
+		<td>{{e.Fecha_entrada}}</td>
+		<td><a href="remover?CodigoF={{e.CodigoF}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+		|<a href="modific?CodigoF={{e.CodigoF}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>|
+		<a href="certificadoe?CodigoF={{e.CodigoF}}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a></td>
+	</tr>
+	{%endfor%}
+</table>
+</div>
+<div class="container">
+<a href="Proveedor" class="btn btn-info">Ingresar Proveedor</a>
+<table class ="table table-striped">
+		<th>Codigo</th>
+		<th>Nombre</th>
+		<th>Telefono</th>
+		<th>Direccion</th>
+		<th>Opciones</th>
+	{%for po in proveedor%}
+	<tr>		
+		<td>{{po.Codigo}}</td>
+		<td>{{po.Nombre}}</td>
+		<td>{{po.Telefono}}</td>
+		<td>{{po.Direccion}}</td>
+		<td><a href="eliminarP?Codigo={{po.Codigo}}"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+		|<a href="editar?Codigo={{po.Codigo}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>|
+		<a href="certificadoP?Codigo={{po.Codigo}}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a></td>
+	</tr>
+	{%endfor%}
+</table>
+</div>
+</div>
+{%endblock%}
+</body>
+</html>

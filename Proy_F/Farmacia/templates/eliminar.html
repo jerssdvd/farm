@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Eliminar</title>
+</head>
+<body>
+	{%extends "master.html"%}
+	{%block contenido %}
+	<h1>eliminar</h1>
+	<p>Desea eliminar el producto {{prod.Cod}} con el precio {{prod.PrecioU}}</p>
+	<a href="../eliminarProducto?Cod={{prod.Cod}}" class="btn btn-danger">Si estoy seguro</a><a href="..">Regresar al menu</a>
+	{%endblock%}
+</body>
+</html>

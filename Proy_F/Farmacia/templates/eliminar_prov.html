@@ -1,0 +1,12 @@
+{% extends "master.html"%}
+{% block title %} Eliminar {% endblock %}
+{%block contenido%}
+	Desea eliminar a : 
+	<div>
+		<p>Codigo : {{Prov.Codigo}}</p>
+		<p>Nombre : {{Prov.Nombre}}</p>
+		<p>Telefono : {{Prov.Telefono}}</p>
+		<p>Direccion :{{Prov.Direccion}}</p>
+	</div>
+	<a href="../eliminarProveedor/?Codigo={{Prov.Codigo}}" class="btn btn-danger">Si estoy Seguro</a> <a href=".." class="btn btn-info">REGRESAR</a>
+{% endblock %}

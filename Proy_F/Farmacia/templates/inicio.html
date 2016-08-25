@@ -1,0 +1,96 @@
+{%extends "master.html" %}
+{% load static %}
+{% block title %}
+INICIO
+{%endblock%}
+{%block contenido%}
+<div class="container " style="background-image:url('{% static "img/fondo.jpg" %}');height:100%">
+{% if user.is_authenticated %}
+	<nav class="navbar navbar-inverse">
+	<div class="navbar-header">
+	
+<a class="navbar-brand" href=""><img src="{% static 'img/cruz.png' %}" width="45px" height="35px"/></a>
+	</div>
+	<div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+		<ul class="nav navbar-nav">
+			<li><a href="">Home</a></li>
+			<li><a href="Acerca">Informacion del sitio</a></li>
+			<li><a href="Farma">Opciones</a></li>
+			<li><a href="cerrar" > Salir </a></li>
+		</ul>
+	</div>
+	</nav>
+	<div style="float:right;width:250px" >
+	Bienvenido {{user.username|capfirst}}
+	</div>
+	{% else %}
+	<div style="float:right;width:250px" >
+	<legend align="center">Entrar</legend>
+	<form method="post">{% csrf_token %}
+		<div class="control-group">
+		<label for="inputusuario">Usuario</label>
+		<div class="controls">
+		<input name="username" type="text" placeholder="USUARIO"/>
+		</div>
+		<label for="inputpassword">Contraseña</label>
+		<div class="controls">
+		<input type="password" name="password" placeholder="contraseña"/>
+		</div>
+		</div>
+		<input type="submit" value="Login" class="btn btn-infos"/>
+	</form>
+	<a href="registrar" class="btn btn-success"> o Registrese ahora!!</a>
+	</div>
+	{% endif %}
+	<div class="container">
+	<h2>Bienvenido a su Farmacia </h2>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.</p>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.</p>
+	</div>
+	<div id="slaiderinicical">
+		<div class="fondoslaider">
+			<div id="letrerouno"></div>
+			<div id="letrerodos"></div>
+		</div>
+		<img src=""  id="galeriaimg" width="900px" height="390px" /><br>
+		<img src="" alt="" class="posicionindividual" id="puntosprimeros" width="900px" height="100px" margin-top: -30px; transparent:50%;/>
+		
+	</div>
+	<br />
+	<div>
+	<a href="listar">
+	<img src="{% static "img/fondo3.jpg" %}" />
+	</a>
+	</div>
+	
+	
+</div>
+<script type="text/javascript">
+var fotos = ['{% static "img/nat.jpg" %}','{% static "img/pildor.jpg" %}','{% static "img/fondo3.jpg" %}','{% static "img/logo.jpg" %}'];
+var posiciones = ['{% static "img/posicion.png" %}','{% static "img/posdos.png" %}','{% static "img/postres.png" %}','{% static "img/poscuatro.png" %}'];
+var atxt1 = ['<p class="slaiderttxtuno foto1"> Medicamentos </p>','<p class="slaiderttxtuno foto2"> Grageas</p>','<p class="slaiderttxtuno foto3"> Medicinas</p>','<p class="slaiderttxtuno foto4"> Manten tu buena salud</p>'];
+var atxt2 = ['<p class="slaiderttxtdos">Buenos para recuperar tu salud </p>','<p class="slaiderttxtdos"> con el mejor precio</p>','<p class="slaiderttxtdos"> Revisa nuestro stock de medicamentos</p>','<p class="slaiderttxtdos"> Cuidala!!</p>'];
+var marcador=0;
+var seg=3;
+
+var elementGaleria= document.getElementById('galeriaimg');
+var elementpunto= document.getElementById('puntosprimeros');
+var elementtexto1= document.getElementById('letrerouno');
+var elementtexto2= document.getElementById('letrerodos');
+
+function Slaiderac(){
+	elementGaleria.setAttribute('src',fotos[marcador]);
+	elementpunto.setAttribute('src',posiciones[marcador]);
+	elementtexto1.innerHTML = atxt1[marcador];
+	elementtexto2.innerHTML = atxt2[marcador];
+	
+	if(marcador<fotos.length-1){
+		marcador++;
+	}else {
+		marcador=0;
+	}
+	setTimeout(Slaiderac,seg*1000);
+}
+Slaiderac();
+</script>
+{%endblock%}

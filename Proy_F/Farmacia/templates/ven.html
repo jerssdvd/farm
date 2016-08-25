@@ -1,0 +1,32 @@
+{%extends "master.html" %}
+{% load static %}
+{% block title %}
+Ventas
+{%endblock%}
+{%block contenido%}
+<div class="container" style="background-image:url('{% static "img/vent.jpg" %}') ;width:1000">
+<div class="table table-responsive">
+		<a href="venta">Ingresar venta</a>
+		<a href="facturas">Ver Facturas</a>
+		<a href="..">Regresar</a>
+		<table class ="table table-striped">
+			<tr>
+				<td>Codigo</td>
+				<td>Cod_Empleado</td>
+				<td>Descripcion</td>
+				<td>Total</td>
+				<td>detalle Factura</td>
+			</tr>
+			{%for v in ventas%}
+			<tr>
+				<td>{{v.Code}}</td>
+				<td>{{v.CodFa}}</td>
+				<td>{{v.Descripcion}}</td>
+				<td>{{v.Total}}</td>
+				<td><a href="detalle?CodFact={{v.CodFact}}"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></a></td>
+			</tr>
+			{%endfor%}
+		</table>
+	</div>
+</div>
+{% endblock %}

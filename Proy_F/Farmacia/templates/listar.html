@@ -1,0 +1,30 @@
+{% extends "master.html"%}
+{% load static %}
+{% block title%} Farmacia {% endblock %}
+{%block contenido%}
+<div class="container" style="background-image:url('{% static "img/fondo.jpg" %}') ;width:1000">
+<div class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+<ul class="nav navbar-nav">
+			<li><a href="..">Home</a></li>
+			<li><a href="../Acerca">Informacion del Sitio</a></li>
+			<li><a href="../cerrar" > Cerrar Session </a></li>
+		</ul>
+	</div>
+<table class ="table table-striped">
+	<tr>
+		<td>Nombre</td>
+		<td>Cantidad</td>
+		<td>Descripcion</td>
+		<td>Precio</td>
+	</tr>
+	{%for m in medicinas%}
+	<tr>
+		<td>{{m.Nombre}}</td>
+		<td>{{m.Cantidad}}</td>
+		<td>{{m.Descripcion}}</td>
+		<td>{{m.PrecioU}}</td>
+	</tr>
+	{%endfor%}
+</table>
+</div>
+{%endblock%}

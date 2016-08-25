@@ -1,0 +1,13 @@
+{% extends "master.html" %}
+{% block title %}
+Registrar venta
+{% endblock %}
+{% block contenido %}
+<div class="container">
+  <h1>Crear una venta</h1>
+  <form method="post">{% csrf_token %}
+    {{Vent.as_p}}
+ <input type="submit" value="Ingresar" class="btn btn-success"/>
+ </form>
+	</div>
+{% endblock %}

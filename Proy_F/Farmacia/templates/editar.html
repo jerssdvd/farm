@@ -1,0 +1,8 @@
+{% extends "master.html"%}
+{% block title %} Editar {% endblock %}
+{%block contenido%}
+	<form method="post">{% csrf_token %}
+		{{f.as_p}}
+		<input type="submit" value="Modificar" class="btn btn-success"/>
+	</form>
+{% endblock %}

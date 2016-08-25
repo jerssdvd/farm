@@ -1,0 +1,13 @@
+{% extends "master.html" %}
+{% block title %}
+Registrar factura
+{% endblock %}
+{% block contenido %}
+<div class="container">
+  <h1>Factura</h1>
+  <form method="post">{% csrf_token %}
+    {{fcfactura.as_p}}
+ <input type="submit" value="Crear" />
+ </form>
+	</div>
+{% endblock %}

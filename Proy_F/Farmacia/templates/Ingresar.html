@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Registrar Nuevo Empleado</title>
+</head>
+<body>
+{%extends "master.html"%}	
+{%block contenido%}	
+<div class="well">
+	<form action="" method="post">{% csrf_token %}
+		{{formempleado.as_p}}
+		<input type="submit" value="Ingresar" />
+	</form>
+</div>
+{%endblock%}
+</body>
+</html>
